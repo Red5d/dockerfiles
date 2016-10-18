@@ -8,7 +8,7 @@ RUN apk add --no-cache build-base python py-pip py-gunicorn python-dev libxml2 l
 
 # Copy in base opentaxii file and set random secret value.
 COPY opentaxii.yml /
-RUN secret=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1); sed -i 's/changeme/'${secret}'g/' opentaxii.yml
+RUN secret=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1); sed -i 's/changeme/'${secret}'g/' /opentaxii.yml
 ENV OPENTAXII_CONFIG=/opentaxii.yml
 
 # Copy in base services/collections configs and apply them.
