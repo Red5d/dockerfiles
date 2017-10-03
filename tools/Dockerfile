@@ -4,5 +4,6 @@ MAINTAINER Red5d
 
 # A lightweight image with some common commandline tools that I use.
 
-RUN apk add --no-cache python3 python py-pip mtr git openssh speedtest-cli nmap nmap-scripts && \
-    pip install --upgrade pip && pip install requests csvkit howdoi 
+RUN apk add --no-cache build-base python3 python3-dev libxml2-dev libxslt-dev mtr git openssh speedtest-cli nmap nmap-scripts && \
+    pip3 install --upgrade pip && pip3 install requests ptpython csvkit howdoi && \
+    apk del build-base python3-dev
